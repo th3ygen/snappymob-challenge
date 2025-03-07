@@ -16,6 +16,10 @@ async function processFile(path: string) {
 
 		const data = await readFile(path, "utf-8");
 
+		if (!data) {
+			throw new Error("File is empty");
+		}
+
 		console.log("Done! Parsing data...");
 
 		const list = data.split(",");
@@ -34,26 +38,13 @@ async function processFile(path: string) {
 	}
 }
 
-(async () => {
-	try {
-		console.log("Reading file...");
+// consume first argument as path
+// example: node b.js ./random.txt
+const path = process.argv[2];
 
-		const data = await readFile("random.txt", "utf-8");
+if (!path) {
+	console.error("No path provided");
+	process.exit(1);
+}
 
-		console.log("Done! Parsing data...");
-
-		const list = data.split(",");
-
-		for (let item of list) {
-			const parsed = Randomizer.parse(item);
-
-			if (parsed) {
-				console.log(parsed);
-			}
-		}
-
-		console.log("Done!");
-	} catch (err) {
-		console.error(err);
-	}
-})();
+processFile(path);
