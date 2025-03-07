@@ -1,5 +1,5 @@
 import { RandomizerFactory } from "@/randomizer/factory";
-import { writeFile } from "fs/promises";
+import { writeFile, mkdir, symlink } from "fs/promises";
 
 // 10mb
 const MAX_SIZE_BYTES = 10 * 1024 * 1024;
@@ -59,8 +59,11 @@ const randomizers = [
 
 		console.log("Done! Saving data as random.txt...");
 
+		// create directory if it doesn't exist
+		await mkdir("out", { recursive: true });
+
 		// create data as file, seperated by comma
-		await writeFile("random.txt", list.join(","));
+		await writeFile("out/random.txt", list.join(","));
 
 		// log the file path and size in MB
 		console.log("Done! File saved to random.txt");
