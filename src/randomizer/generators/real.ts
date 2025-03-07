@@ -13,6 +13,7 @@ export class RealGenerator extends Randomizer {
 
 	generate(): string {
 		const rnd = this.randomize(this.min, this.max);
-		return rnd.toFixed(this.dp);
+		// to dp and remove trailing 0s
+		return rnd + "";
 	}
 }

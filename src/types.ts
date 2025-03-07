@@ -6,5 +6,6 @@ export enum RandomizerType {
 }
 
 export interface RandomizerBase {
+	randomize(min: number, max: number): number;
 	generate(min: number, max: number): string;
 }
