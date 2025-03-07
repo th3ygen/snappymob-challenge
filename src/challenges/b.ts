@@ -23,6 +23,7 @@ export async function processFile(path: string) {
 		console.log("Done! Parsing data...");
 
 		const list = data.split(",");
+		const res = [];
 
 		for (let item of list) {
 			const parsed = Randomizer.parse(item);
@@ -30,11 +31,15 @@ export async function processFile(path: string) {
 			if (parsed) {
 				console.log(parsed);
 			}
+
+			res.push(parsed);
 		}
 
 		console.log("Done!");
+		return res;
 	} catch (err) {
 		console.error(err);
+		return [];
 	}
 }
 
