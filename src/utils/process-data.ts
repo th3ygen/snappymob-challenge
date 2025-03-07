@@ -19,9 +19,9 @@ export async function processFile(path: string) {
 		for (let item of list) {
 			const parsed = Randomizer.parse(item);
 
-			/* if (parsed) {
+			if (parsed) {
 				console.log(parsed);
-			} */
+			}
 
 			res.push(parsed);
 		}

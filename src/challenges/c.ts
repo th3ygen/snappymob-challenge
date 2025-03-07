@@ -1,5 +1,3 @@
-// consume first argument as path
-
 import { processFile } from "@/utils/process-data";
 import { writeFile } from "fs/promises";
 
