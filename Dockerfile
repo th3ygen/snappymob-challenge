@@ -10,5 +10,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm", "run"]
-
+CMD ["npm", "run", "b", "/app/out/random.txt"]

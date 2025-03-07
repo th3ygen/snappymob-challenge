@@ -10,7 +10,7 @@ stripped.
 import { Randomizer } from "@/randomizer";
 import { readFile } from "fs/promises";
 
-async function processFile(path: string) {
+export async function processFile(path: string) {
 	try {
 		console.log("Reading file...");
 
