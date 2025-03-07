@@ -9,7 +9,7 @@
 
 ## Setup
 
-1.  **Clone the Repository (if applicable):**
+1.  **Clone the Repository:**
 
     ```bash
     git clone https://github.com/th3ygen/snappymob-challenge.git
