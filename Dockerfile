@@ -9,5 +9,7 @@ RUN npm install
 COPY . .
 
 RUN npm run build
+RUN npm test
 
-CMD ["npm", "run", "b", "/app/out/random.txt"]
+
+CMD ["npm", "run", "c"]

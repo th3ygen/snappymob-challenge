@@ -6,9 +6,11 @@
 		"test": "jest",
 		"a:dev": "ts-node src/challenges/a.ts",
 		"b:dev": "ts-node src/challenges/b.ts",
+		"c:dev": "ts-node src/challenges/c.ts",
 		"build": "tsc && tsc-alias",
 		"a": "node dist/challenges/a.js",
-		"b": "node dist/challenges/b.js"
+		"b": "node dist/challenges/b.js",
+		"c": "node dist/challenges/c.js"
 	},
 	"keywords": [],
 	"author": "",

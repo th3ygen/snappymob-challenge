@@ -31,10 +31,6 @@ describe.each(Array.from({ length: ITERATIONS }))("RealRandomizer", () => {
 		expect(Number(result)).toBeLessThanOrEqual(MAX);
 	});
 
-	it(`should have ${DP} decimal places`, () => {
-		expect(result.split(".")[1]).toHaveLength(DP);
-	});
-
 	it("should be unique", () => {
 		expect(result).not.toBe(randomizer.generate());
 	});

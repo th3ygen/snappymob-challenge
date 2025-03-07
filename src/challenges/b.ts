@@ -7,49 +7,9 @@ before and after the alphanumeric object must be
 stripped.
 */
 
-import { Randomizer } from "@/randomizer";
-import { readFile } from "fs/promises";
-
-export async function processFile(path: string) {
-	try {
-		console.log("Reading file...");
-
-		const data = await readFile(path, "utf-8");
-
-		if (!data) {
-			throw new Error("File is empty");
-		}
-
-		console.log("Done! Parsing data...");
-
-		const list = data.split(",");
-		const res = [];
-
-		for (let item of list) {
-			const parsed = Randomizer.parse(item);
-
-			if (parsed) {
-				console.log(parsed);
-			}
-
-			res.push(parsed);
-		}
-
-		console.log("Done!");
-		return res;
-	} catch (err) {
-		console.error(err);
-		return [];
-	}
-}
+import { processFile } from "@/utils/process-data";
 
 // consume first argument as path
 // example: node b.js ./random.txt
-const path = process.argv[2];
-
-if (!path) {
-	console.error("No path provided");
-	process.exit(1);
-}
-
+const path = process.argv[2] ?? "./out/random.txt";
 processFile(path);

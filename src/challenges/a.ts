@@ -3,19 +3,11 @@ import { writeFile, mkdir, symlink } from "fs/promises";
 
 // consume first argument as output path
 // example: node a.js ./random.txt
-let path = process.argv[2];
+let path = process.argv[2] ?? "./out";
 
 // consume second argument as filename
 // example: node a.js ./random.txt random.txt
-let filename = process.argv[3];
-
-if (!path) {
-	path = "./out";
-}
-
-if (!filename) {
-	filename = "random.txt";
-}
+let filename = process.argv[3] ?? "random.txt";
 
 // 10mb
 const MAX_SIZE_BYTES = 10 * 1024 * 1024;
